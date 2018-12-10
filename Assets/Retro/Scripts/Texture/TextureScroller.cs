@@ -11,7 +11,6 @@ public class TextureScroller : MonoBehaviour {
 	public bool move = false;
 
 	private Renderer _renderer;
-
 	private Vector2 uvOffset;
 
 	// Use this for initialization
@@ -23,15 +22,8 @@ public class TextureScroller : MonoBehaviour {
 	void FixedUpdate () {
 		
 		if (move) {
-/*
-			float t = Time.deltatime;
-			float uOffset = t * uSpeed;
-			float vOffset = t * vSpeed;
-*/
 			uvOffset += new Vector2(uSpeed, vSpeed);
-
 	        _renderer.material.SetTextureOffset("_MainTex", uvOffset);
-
 		}
 
 	}

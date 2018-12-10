@@ -24,9 +24,6 @@ public class MovementController : MonoBehaviour {
 		var x = Input.GetAxis("Horizontal") * sideSpeed;
         var z = Input.GetAxis("Vertical") * frontalSpeed;
 
-        //transform.Rotate(0, x, 0);
-        //transform.Translate(0, 0, z);
-
         if (x != 0.0f) {
 	        parallaxController.sideSpeed = x ;        	
         } else {
