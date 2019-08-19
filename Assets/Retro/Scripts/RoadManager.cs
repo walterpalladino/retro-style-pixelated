@@ -40,17 +40,20 @@ public class RoadManager : MonoBehaviour
 	    	Vector3 pos = _roadPieces[r].transform.position;
 	    	
 	    	pos.z -= roadSpeed;
+	    	//	If the track is out of sight recycle it
 	    	if (pos.z < -2*_roadSize) {
 	    		pos.z += 4 * _roadSize;
 	    	}
 
 	    	pos.x -= sideSlide * _slideSpeed;
+	    	//	Clamp movement on both sides of the road
 	    	if (pos.x > _maxSideSlide) {
 	    		pos.x = _maxSideSlide;
 	    	} else if (pos.x < -_maxSideSlide) {
 	    		pos.x = -_maxSideSlide;
 	    	}
 
+	    	//	Update the track position
 	    	_roadPieces[r].transform.position = pos;
     	}
     }
