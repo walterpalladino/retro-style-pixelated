@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour {
 
 
 	public ParallaxController parallaxController;
+	public RoadManager roadManager;
 
 	private Vector3 _startPosition = Vector3.zero;
 
@@ -25,15 +26,19 @@ public class MovementController : MonoBehaviour {
         var z = Input.GetAxis("Vertical") * frontalSpeed;
 
         if (x != 0.0f) {
-	        parallaxController.sideSpeed = x ;        	
+	        parallaxController.sideSpeed = x ;        
+	        roadManager.sideSlide = x;	
         } else {
-	        parallaxController.sideSpeed = 0.0f ;        	
+	        parallaxController.sideSpeed = 0.0f ;     
+	        roadManager.sideSlide = 0.0f;   	
         }
     
         if (z != 0.0f) {
 	        parallaxController.frontalSpeed = z ;
+	        roadManager.roadSpeed = z;
         } else {
-	        parallaxController.frontalSpeed = 0.0f ;        	
+	        parallaxController.frontalSpeed = 0.0f ;    
+	        roadManager.roadSpeed = 0.0f;    	
 		}
 
 	}
